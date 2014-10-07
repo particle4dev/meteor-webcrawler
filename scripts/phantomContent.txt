@@ -1,0 +1,9 @@
+// 'url' is assigned to in a statement before this.
+var page = require('webpage').create();
+page.open(url, function(status) {
+    if (status === 'fail')
+        phantom.exit();
+
+    console.log(page.content);
+    phantom.exit();
+});

@@ -1,0 +1,23 @@
+{
+  "dependencies": [
+    [
+      "codeadventure:es6-promises",
+      "0.1.0"
+    ],
+    [
+      "meteor",
+      "1.0.2"
+    ],
+    [
+      "particle4dev:cheerio",
+      "1.0.0"
+    ],
+    [
+      "underscore",
+      "1.0.0"
+    ]
+  ],
+  "pluginDependencies": [],
+  "toolVersion": "meteor-tool@1.0.33",
+  "format": "1.0"
+}
