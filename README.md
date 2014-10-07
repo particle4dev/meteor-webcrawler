@@ -2,7 +2,9 @@
 Create README
 
 ###Install
-meteor add particle4dev:webcrawler
+    meteor add particle4dev:webcrawler
+Required
++ Phantomjs
 
 ####Example
 ```javascript
