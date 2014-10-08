@@ -43,6 +43,7 @@ getPage = function (url) {
             if (error && error.code === 127) future.throw(new Error("phantomjs: phantomjs not installed. Download and install from http://phantomjs.org/"));
             else {
                 Meteor._debug("phantomjs: phantomjs failed:", error, "\nstderr:", stderr);
+                future.throw(new Error("phantomjs: phantomjs failed"));
             }
         }
     });
