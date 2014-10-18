@@ -1,6 +1,6 @@
 Package.describe({
     summary: "simple webcrawler for iron router",
-    version: "1.0.0",
+    version: "1.1.0",
     name: "particle4dev:webcrawler",
     git: "https://github.com/particle4dev/meteor-webcrawler.git"
 });

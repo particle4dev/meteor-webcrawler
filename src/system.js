@@ -35,8 +35,14 @@ _.extend(WebcrawlerSystem, {
     },
 
     _pipeline: new Pipeline(),
+    _waitTime: 15000,
     run: function () {
         if(this._pipeline.getLength() > 0)
-            this._pipeline.requireFlush(1, 15000); // wait 15s
+            this._pipeline.requireFlush(1, this._waitTime); // wait 15s
+    },
+    setWaitTime: function(num){
+        if(!_.isNumber(num))
+            throw new Error('time must be a number');
+        this._waitTime = num;
     }
 });
