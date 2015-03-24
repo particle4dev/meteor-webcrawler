@@ -27,6 +27,15 @@ Pipeline = (function(){
 
             return this;
         };
+        self.unshift = function(func /** param1, param2 ... */){
+            var args = Array.prototype.slice.call(arguments, 1);
+            if(!_.isFunction(func))
+                throw new Error("param must be type of function");
+            func = _.bind.apply(_, [func, null].concat(args));
+            _pipeline.unshift(func);
+
+            return this;
+        };
         self.flushing = function(num){
             var tmp = null;
             inFlush = true;

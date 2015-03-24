@@ -1,6 +1,6 @@
 Package.describe({
     summary: "simple webcrawler for meteor",
-    version: "1.1.1",
+    version: "1.2.1",
     name: "particle4dev:webcrawler",
     git: "https://github.com/particle4dev/meteor-webcrawler.git"
 });
@@ -12,7 +12,7 @@ var server = ['server'];
 
 Package.on_use(function(api) {
     api.versionsFrom("METEOR@0.9.3");
-    api.use(['underscore', 'particle4dev:cheerio@1.0.0', 'codeadventure:es6-promises@0.1.0'],  server);
+    api.use(['underscore', 'particle4dev:cheerio@0.19.0', 'codeadventure:es6-promises@0.1.0'],  server);
     
     api.add_files([
         'scripts/phantomContent.txt'

@@ -16,6 +16,14 @@ _.extend(WebcrawlerSystem, {
         t.run = t.run.bind(t);
         this._pipeline.push(t.run);
     },
+    runImmediately: function(className /** arg */){
+        var c = this._crawler.get(className);
+        var args = Array.prototype.slice.call(arguments, 1);
+        var t = new c();
+        t._init.apply(t, args);
+        t.run = t.run.bind(t);
+        this._pipeline.unshift(t.run);
+    },
     _createCrawler: function(opts){
         var NewCrawler = function(){
             this._tasks = [];
