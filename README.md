@@ -45,6 +45,8 @@ WebcrawlerSystem.register("flickr:fetchGalleries", {
     }
 });
 
+```
+```javascript
 WebcrawlerSystem.register("flickr:makeAlbum", {
     _init: function(url){
         this.url = url;
@@ -112,6 +114,8 @@ WebcrawlerSystem.register("flickr:makeAlbum", {
         WebcrawlerSystem.run(); // still continue
     }
 });
-
+```
+```javascript
 WebcrawlerSystem.make("flickr:fetchGalleries", "https://www.flickr.com/photos/creepella_gruesome/15269958538/in/explore-2014-10-06");
 WebcrawlerSystem.run();
+```
