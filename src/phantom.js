@@ -27,7 +27,12 @@ getPage = function (url) {
     var pt = 'var url = "' + url + '"; ' + PHANTOM_SCRIPT;
     child_process.execFile('/bin/bash', [
         '-c',
-        ("exec phantomjs --load-images=no /dev/stdin <<'END'\n" + pt + "END\n")],
+        // https://groups.google.com/forum/#!msg/meteor-talk/dPLss2idrJg/Dd4qL9O9d6AJ
+        // https://groups.google.com/d/msg/meteor-talk/dPLss2idrJg/rUmD8Ak9Ln8J
+        // --ssl-protocol=tlsv1
+        // https://groups.google.com/d/msg/meteor-talk/dPLss2idrJg/Dd4qL9O9d6AJ
+        // --ignore-ssl-errors=yes
+        ("exec phantomjs --ignore-ssl-errors=yes --ssl-protocol=tlsv1 --load-images=yes /dev/stdin <<'END'\n" + pt + "END\n")],
         {
             timeout: REQUEST_TIMEOUT,
             maxBuffer: MAX_BUFFER
