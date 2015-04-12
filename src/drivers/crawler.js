@@ -21,8 +21,8 @@ Crawler.prototype.constructor = Crawler;
  */
 _.extend(Crawler.prototype, {
     getContent: function (url) {
-        if(!validURL(url))
-            throw new Error('string is not url');
+        // if(!validURL(url))
+            // throw new Error('string is not url');
         var future = new Future;
         // Queue URLs with custom callbacks & parameters
         this._driver.queue([{
