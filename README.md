@@ -1,5 +1,5 @@
 ###Todos
-Create README
+Update README
 
 ###Install
     meteor add particle4dev:webcrawler

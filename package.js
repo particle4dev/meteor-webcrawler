@@ -35,7 +35,6 @@ Package.on_use(function(api) {
         'src/utils/extends.js',
         'src/utils/url.js',
 
-        'src/phantom.js',
         'src/common.js',
         // drivers
         'src/drivers/abstraction.js',
