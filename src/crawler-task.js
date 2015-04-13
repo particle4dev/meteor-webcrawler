@@ -4,8 +4,6 @@
 function CrawlerTask() {
     this._tasks = [];
     this._data = new Register();
-    if(this.pipeline)
-        this.pipeline();
 }
 CrawlerTask.prototype.constructor = CrawlerTask;
 /*
