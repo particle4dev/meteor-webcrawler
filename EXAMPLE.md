@@ -1,6 +1,12 @@
 ####Example
 ```javascript
 
+WebcrawlerSystem.config({
+   driver: new WebcrawlerSystem.Crawler({
+        
+   })
+});
+
 WebcrawlerSystem.register("flickr:fetchGalleries", {
     _init: function(url){
         this.url = url;
