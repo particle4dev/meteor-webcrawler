@@ -13,6 +13,8 @@ _.extend(CrawlerTask.prototype, {
     run: function(){
         if(!this.url)
             throw new Error('url is not set');
+        this.url = encodeURI(this.url);
+        console.log(this.url);
         this._urlMatch = matchUrl(this.url);
 
         var url = this.url;

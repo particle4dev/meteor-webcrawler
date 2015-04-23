@@ -17,3 +17,10 @@ validURL = function (url) {
     var re = new RegExp(strRegex);
     return re.test(url);
 }
+
+/**
+ * http://stackoverflow.com/a/12141281
+ */
+encodeURI = function (url) {
+    return url.trim().replace(/ /g,"%20");
+};
