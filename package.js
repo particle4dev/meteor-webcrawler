@@ -1,6 +1,6 @@
 Package.describe({
     summary: "simple webcrawler for meteor",
-    version: "1.1.1",
+    version: "1.1.2",
     name: "particle4dev:webcrawler",
     git: "https://github.com/particle4dev/meteor-webcrawler.git"
 });

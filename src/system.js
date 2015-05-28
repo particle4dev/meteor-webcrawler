@@ -39,6 +39,8 @@ _.extend(WebcrawlerSystem, {
     run: function () {
         if(this._pipeline.getLength() > 0)
             this._pipeline.requireFlush(1, this._waitTime); // wait 15s
+        else
+            console.log('web crawler jobs is done !!!');
     },
     setWaitTime: function(num){
         if(!_.isNumber(num))
