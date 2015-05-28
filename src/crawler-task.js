@@ -1,7 +1,19 @@
-WebcrawlerSystem.WebcrawlerPrototype = {
+/**
+ * 
+ */
+function CrawlerTask() {
+    this._tasks = [];
+    this._data = new Register();
+}
+CrawlerTask.prototype.constructor = CrawlerTask;
+/*
+ * Add Methods
+ */
+_.extend(CrawlerTask.prototype, {
     run: function(){
         if(!this.url)
             throw new Error('url is not set');
+        this.url = encodeURI(this.url);
         this._urlMatch = matchUrl(this.url);
 
         var url = this.url;
@@ -18,7 +30,8 @@ WebcrawlerSystem.WebcrawlerPrototype = {
             self._onsuccessCallback = Meteor.bindEnvironment(self._onsuccessCallback);
             var promise = new Promise(function(resolve, reject) {
                 try {
-                    var $ = getPage(url);
+                    var driver = WebcrawlerSystem._getDriver();
+                    var $ = driver.getContent(url);
                     resolve($);
                 }
                 catch(e){
@@ -69,4 +82,47 @@ WebcrawlerSystem.WebcrawlerPrototype = {
     get: function(name) {
         return this._data.get(name);
     }
-};
+});
+/**
+ * Exports
+ */
+WebcrawlerSystem.CrawlerTask = CrawlerTask;
+
+/**
+ CODE STYLE
+WebcrawlerSystem.register("flickr:fetchGalleries", {
+    _init: function(url){
+        this.url = url;
+        logging('fetching ' + url);
+    },
+    pipeline: function(){
+        this.registerTask('getGalleries', function($){
+            var self = this;
+            var galleries = [];
+            var gallery = $('div.galleries').find('a');
+            gallery.each(function (index, a) {
+                galleries.push(self._urlMatch.scheme + '://' + self._urlMatch.authority + $(this).attr('href'));
+            });
+            this.save('galleries', galleries);
+            return $;
+        });
+    },
+    onsuccess: function(){
+        var albumModule = APP.namespace('ALBUMS');
+        var galleries = this.get('galleries');
+        _.each(galleries, function (url) {
+            if(albumModule.isAlbumSiteExists(url)) {
+                logging(url + ' is crawled, ignore.');
+            }
+            else {
+                WebcrawlerSystem.make("flickr:makeAlbum", url);
+            }
+        });
+        logging('success ' + this.url);
+        WebcrawlerSystem.run();
+    },
+    onfailure: function(error){
+        console.trace(error);
+    }
+});
+ */
